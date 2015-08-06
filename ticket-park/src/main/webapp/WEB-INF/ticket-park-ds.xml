@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.ironjacamar.org/schema/datasources_1_0.xsd">
+	<datasource jta="true" jndi-name="java:jboss/datasources/ticket-park-ds"
+		pool-name="ticket-park" enabled="true" use-java-context="true"
+		use-ccm="true">
+		<!-- Aqui você deve colocar o endereço da sua base de dados -->
+		<connection-url>jdbc:mysql://127.0.0.1:3306/ticket_park
+		</connection-url>
+		<driver>ticket-park.war_com.mysql.jdbc.Driver_5_1</driver>
+		<transaction-isolation>TRANSACTION_READ_COMMITTED
+		</transaction-isolation>
+		<pool>
+			<min-pool-size>10</min-pool-size>
+			<max-pool-size>100</max-pool-size>
+			<prefill>true</prefill>
+		</pool>
+		<security>
+			<user-name>root</user-name>
+			<password>123456</password>
+		</security>
+		<statement>
+			<prepared-statement-cache-size>32</prepared-statement-cache-size>
+			<share-prepared-statements>true</share-prepared-statements>
+		</statement>
+	</datasource>
+</datasources>

@@ -7,7 +7,7 @@
 		<!-- Aqui você deve colocar o endereço da sua base de dados -->
 		<connection-url>jdbc:mysql://127.0.0.1:3306/ticket_park
 		</connection-url>
-		<driver>ticket-park.war_com.mysql.jdbc.Driver_5_1</driver>
+		<driver>mysql-connector-java-5.1.36.jar_com.mysql.jdbc.Driver_5_1</driver>
 		<transaction-isolation>TRANSACTION_READ_COMMITTED
 		</transaction-isolation>
 		<pool>

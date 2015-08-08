@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 
 import me.impressione.ticketpark.api.TipoVeiculoService;
-import me.impressione.ticketpark.entity.Ticket;
 import me.impressione.ticketpark.entity.TipoVeiculo;
 import me.impressione.ticketpark.repository.TipoVeiculoRepository;
 
@@ -27,6 +27,7 @@ public class TipoVeiculoServiceImpl implements TipoVeiculoService {
 	}
 
 	@Override
+	@Transactional
 	public TipoVeiculo saveTipoVeiculo(TipoVeiculo tipoVeiculo ) {
 		return tipoVeiculoRepository.save(tipoVeiculo);
 	}

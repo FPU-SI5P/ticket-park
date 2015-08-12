@@ -16,7 +16,7 @@ public class TicketServiceImpl implements TicketService {
 
 	@Override
 	public List<Ticket> getTickets() {
-		return ticketRepository.findAll();
+		return ticketRepository.findOnlyOpenTicket();
 	}
 
 	@Override
@@ -28,6 +28,11 @@ public class TicketServiceImpl implements TicketService {
 
 	@Override
 	public Ticket saveTicket(Ticket ticket) {
+		return ticketRepository.save(ticket);
+	}
+
+	@Override
+	public Ticket closeTicket(Ticket ticket) {
 		return ticketRepository.save(ticket);
 	}
 

@@ -12,7 +12,8 @@ angular
   .module('webappApp', [
     'ngResource',
     'ngRoute',
-    'ngMask'
+    'ngMask',
+    'currencyMask'
   ])
   .config(function ($routeProvider) {
     $routeProvider

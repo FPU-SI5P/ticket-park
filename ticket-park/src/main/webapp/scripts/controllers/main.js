@@ -19,6 +19,7 @@ angular.module('webappApp')
 					});
 
 					$scope.add = function() {
+						$scope.ticket.entrada = new Date();
 						TicketDAO.save($scope.ticket, function() {
 							$scope.reset();
 						});
@@ -41,10 +42,15 @@ angular.module('webappApp')
 					$scope.loadAll();
 
 					$scope.checkout = function() {
-						var index = $scope.tickets.indexOf($scope.ticket)
-						if (index != -1) {
-							$scope.tickets.splice(index, 1);
-						}
+//						var index = $scope.tickets.indexOf($scope.ticket)
+//						if (index != -1) {
+//							$scope.tickets.splice(index, 1);
+//						}
+						$scope.ticket.saida = new Date();
+						TicketDAO.closeTicket($scope.ticket, function() {
+							$scope.reset();
+						});
+						
 					}
 					$scope.prepareToCheckout = function(ticketd) {
 						$scope.ticket = ticketd;
@@ -55,10 +61,11 @@ angular.module('webappApp')
 					}, 1000);
 
 					function Ticket(item) {
+						this.id = item.id;
 						this.placa = item.placa;
 						this.tipoVeiculo = item.tipoVeiculo;
-						this.entrada = new Date();
-						this.desconto = 0;
+						this.entrada = item.entrada ;
+						this.desconto ;
 						this.tempo = function() {
 							return new Date() - this.entrada;
 						};
@@ -69,5 +76,6 @@ angular.module('webappApp')
 						this.valor = function() {
 							return this.horas() * this.tipoVeiculo.valor;
 						};
+						this.total = this.valor() ;
 					}
 				});

@@ -4,13 +4,13 @@
       <div class="form-group col-md-5 ">
         <div class="input-group">
           <span class="input-group-addon">Placa</span>
-          <input autofocus class="form-control" mask='@@@-9999' ng-model='placa' placeholder="BMW-2015" style="text-transform: uppercase" type="text">
+          <input autofocus class="form-control" mask='@@@-9999' ng-model='ticket.placa' placeholder="BMW-2015" style="text-transform: uppercase" type="text">
         </div>
       </div>
       <div class="form-group col-md-5 ">
         <div class="input-group">
           <span class="input-group-addon">Tipo</span>
-          <select class="form-control" ng-model='tipo' ng-options=" item.descricao for item in tipoVeiculos "></select>
+          <select class="form-control" ng-model='ticket.tipoVeiculo' ng-options=" item.descricao for item in tipoVeiculos "></select>
         </div>
       </div>
       <button class="btn btn-success col-xs-12 col-md-2 " ng-click="add()" type="submit">
@@ -33,7 +33,7 @@
   <tbody>
     <tr ng-repeat="ticket in tickets">
       <td>{{ticket.placa}}</td>
-      <td>{{ticket.tipo.descricao}}</td>
+      <td>{{ticket.tipoVeiculo.descricao}}</td>
       <td>{{ticket.tempo() | date:'HH:mm:ss':'UTC'}}</td>
       <td>{{ticket.valor() | currency:"R$" }}</td>
       <td>

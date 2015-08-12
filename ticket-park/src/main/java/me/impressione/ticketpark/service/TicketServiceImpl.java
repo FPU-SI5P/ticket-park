@@ -12,7 +12,7 @@ import me.impressione.ticketpark.repository.TicketRepository;
 @Stateless
 public class TicketServiceImpl implements TicketService {
 	@Inject
-	TicketRepository	ticketRepository;
+	TicketRepository ticketRepository;
 
 	@Override
 	public List<Ticket> getTickets() {
@@ -21,7 +21,8 @@ public class TicketServiceImpl implements TicketService {
 
 	@Override
 	public void removeTicket(Long ticketId) {
-		ticketRepository.remove(new Ticket(ticketId));
+		Ticket ticket = ticketRepository.findBy(ticketId);
+		ticketRepository.remove(ticket);
 
 	}
 

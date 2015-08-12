@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 
 import me.impressione.ticketpark.api.TipoVeiculoService;
 import me.impressione.ticketpark.entity.TipoVeiculo;
@@ -13,7 +12,7 @@ import me.impressione.ticketpark.repository.TipoVeiculoRepository;
 @Stateless
 public class TipoVeiculoServiceImpl implements TipoVeiculoService {
 	@Inject
-	TipoVeiculoRepository	tipoVeiculoRepository;
+	TipoVeiculoRepository tipoVeiculoRepository;
 
 	@Override
 	public List<TipoVeiculo> getTipoVeiculos() {
@@ -22,13 +21,12 @@ public class TipoVeiculoServiceImpl implements TipoVeiculoService {
 
 	@Override
 	public void removeTipoVeiculo(Long tipoVeiculoId) {
-		tipoVeiculoRepository.remove(new TipoVeiculo(tipoVeiculoId));
-
+		TipoVeiculo tipoVeiculo = tipoVeiculoRepository.findBy(tipoVeiculoId);
+		tipoVeiculoRepository.remove(tipoVeiculo);
 	}
 
 	@Override
-	@Transactional
-	public TipoVeiculo saveTipoVeiculo(TipoVeiculo tipoVeiculo ) {
+	public TipoVeiculo saveTipoVeiculo(TipoVeiculo tipoVeiculo) {
 		return tipoVeiculoRepository.save(tipoVeiculo);
 	}
 

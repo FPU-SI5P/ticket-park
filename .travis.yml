@@ -1,2 +1,9 @@
 language: java
-script: "mvn -f ticket-park/pom.xml test"
+script: "mvn -f ticket-park/pom.xml clean test package"
+deploy:
+  provider: releases
+  api_key: "a84c25bd088a01cb3d2c6b82102e781e23779505"
+  file: "ticket-park/target/ticket-park-0.0.1-SNAPSHOT.war"
+  skip_cleanup: true
+  on:
+    tags: true

@@ -4,7 +4,10 @@ deploy:
   provider: releases
   api_key:
     secure: heOxOofF07zctFvX2qLueAVRTWQJWNib3fjmmTvqg8YWzgsK5Em0uAdQryZnRcZmry+p1Wd3djOoJSa5kIyOr2nkLNgtpXw5ORwTrolll9OmQ0ZfgCZqOcW881RpcdU7hV5jlmpKMdbEbZuFevXHY3Xl2h3OB6WMXJwOz7lxUQoR77m3wJS80FOgtg1p9WoU1XRzpEln3YzTsdxADZ9E0j/mXu/p06IphF/COh1PCYURz5UQg+i4cLcWTgJW3ucR41+86pq3arUrRjl987NXfAOTaNgBXwHzexG1LgoEM1wVG4YklIo6bcIL1gDH6zgNDglkwBXvsFyPEgZs0P05pNWHzeEPpc78juKJylmhyA5XXDvAClyq3mLTFRjjQmYTH94gPTsTPTogEPHr3Qm4hoBPBUFc+n7FQBAYxS91l3b7q8rN+9Tg62KAxzPqe2JtcOTN9Ko1aKwkeufDzmpnKG8VY0Tg3yiWge3SaQPfK9IKHlrioNNXDVMVShn+1WEjZR0W/IVVzsDvrh5Fbm/XnuG/B+tsjOECT+oDDUWyLJwF+8wELfJ8oATOEPcEglNPKut7ayO0NSQNexh3CPa0gLja8PK8TItgVCXVLacaMWt8oZ+qg7wj5cmaIaAAFMX8uLdPPhZp8h0NWGdSFCs9Eno3Amt0roUaWz2z/hVpwZs=
-  file: ticket-park/target/ticket-park-0.0.1-SNAPSHOT.war  
+  file: 
+     - "ticket-park/target/ticket-park-0.0.1-SNAPSHOT.war"
+     - "mysql-connector-java-5.1.36.jar"
+     - "ticket-park-ds.xml"
   skip_cleanup: true
   on:
-    repo: gwoliveira/ticket-park
+    tags: true

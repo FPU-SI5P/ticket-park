@@ -1,5 +1,5 @@
 language: java
-script: mvn -f ticket-park/pom.xml test
+script: mvn -f ticket-park/pom.xml test package
 deploy:
   provider: releases
   api_key:
